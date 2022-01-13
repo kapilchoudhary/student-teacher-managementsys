@@ -1,0 +1,79 @@
+{% extends 'superadmin/base.html' %}
+
+{% block all_teachers %}
+<div class="container-fluid rounded">
+
+  <div class="row">
+
+    {% block side_bar %}
+    {% include '../side-bar.html' %}
+    {% endblock side_bar %}
+    <div class="col-sm-7 align-items-center" style="background-color: #6fb6f1;">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Subjects</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in all_teachers %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td><a href="{{i.id}}"> {{i.teacher_name}}</a></td>
+                <td>{{i.subject}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 border align-items-center" style="background-color: #6fb6f1;">
+      <div class="row align-items-center" style="height: 50%;">
+        <div class="col-sm-12 bg-dark">
+          <div class="container align-items-center text-center text-white mt-1">
+            <h4>Add New Teacher</h4>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="container">
+            <form class="text-center" action="{% url 'all_teachers' %}" method="post">
+              {% csrf_token %}
+              <div class="mb-3 row">
+                <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
+                {{form.teacher_name.label}}
+                <div class="col-sm-10">
+                  {{form.teacher_name}}
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
+                {{form.subject.label}}
+                <div class="col-sm-10">
+                  {{form.subject}}
+                </div>
+              </div>
+              <div class="mb-3 row ">
+                <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
+                {{form.students.label}}
+                <div class="col-sm-10 text-center justify-content-start d-flex" style="height: 200px; overflow: scroll;">
+                 
+                    {{ form.students }}
+              
+                </div>
+              </div>
+              <button class="btn btn-outline-primary text-center">Add Teacher</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock all_teachers %}

@@ -1,0 +1,23 @@
+{% block side-bar %}
+<div class="col-sm-2 bg-dark justify-content-center d-flex align-items-center" style="height: 90vh;">
+    <ul class="list-unstyled ">
+        <a href="/" class="text-decoration-none"><li
+                class="w-100 btn my-3 btn-outline-warning {% block allactivetab %} active {% endblock allactivetab %}">
+                <span class="text-white">All Users</span>
+            </li></a>
+        <a href="{% url 'all_students' %}" class="text-decoration-none">
+            <li class="w-100 btn my-3 btn-outline-warning {% block sactivetab %} {% endblock sactivetab %}">
+                <span class="text-white">Students</span>
+            </li>
+        </a>
+        <a href="{% url 'all_teachers' %}" class="text-decoration-none">
+            <li class="w-100 btn my-3 btn-outline-warning {% block Tactivetab %} {% endblock Tactivetab %}">
+                <span class="text-white">Teacher</span>
+            </li>
+        </a>
+        <!-- <li class="w-100 btn my-3 btn-outline-warning {% block activetab %} {% endblock activetab %}">
+            <a href="" class="text-decoration-none"> <span class="text-white">Assign a Teacher</span></a>
+        </li> -->
+    </ul>
+</div>
+{% endblock side-bar %}
