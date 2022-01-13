@@ -16,7 +16,7 @@ To Run Project Locally
 - Create your virtual enviornment :
 
 ```bash
-  python3 -v venv my-venv
+  python3 -m venv my-venv
 
 ```
 - Activate your virtual enviornment :
