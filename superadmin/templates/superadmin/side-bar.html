@@ -2,17 +2,22 @@
 <div class="col-sm-2 bg-dark justify-content-center d-flex align-items-center" style="height: 90vh;">
     <ul class="list-unstyled ">
         <a href="/" class="text-decoration-none"><li
-                class="w-100 btn my-3 btn-outline-warning {% block allactivetab %} active {% endblock allactivetab %}">
+                class="w-100 btn my-3 btn-outline-warning">
                 <span class="text-white">All Users</span>
             </li></a>
         <a href="{% url 'all_students' %}" class="text-decoration-none">
-            <li class="w-100 btn my-3 btn-outline-warning {% block sactivetab %} {% endblock sactivetab %}">
+            <li class="w-100 btn my-3 btn-outline-warning">
                 <span class="text-white">Students</span>
             </li>
         </a>
         <a href="{% url 'all_teachers' %}" class="text-decoration-none">
-            <li class="w-100 btn my-3 btn-outline-warning {% block Tactivetab %} {% endblock Tactivetab %}">
+            <li class="w-100 btn my-3 btn-outline-warning">
                 <span class="text-white">Teacher</span>
+            </li>
+        </a>
+        <a href="{% url 'star_student' %}" class="text-decoration-none">
+            <li class="w-100 btn my-3 btn-outline-warning">
+                <span class="text-white">Star Your Student</span>
             </li>
         </a>
         <!-- <li class="w-100 btn my-3 btn-outline-warning {% block activetab %} {% endblock activetab %}">

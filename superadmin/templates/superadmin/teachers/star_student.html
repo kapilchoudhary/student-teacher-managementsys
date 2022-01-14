@@ -1,0 +1,59 @@
+{% extends 'superadmin/base.html' %}
+
+{% block star_student %}
+<div class="container-fluid rounded">
+
+    <div class="row" style="overflow: hidden;">
+
+        {% block side_bar %}
+        {% include '../side-bar.html' %}
+        {% endblock side_bar %}
+        <div class="col-sm-10 align-items-center">
+            <h1 class="text-center">Star Your Student</h1>
+            {% if msg %}
+            {{msg}}
+            {% endif %}
+            <div class="col-sm-12 align-items-center">
+                <div class="row" style="overflow: scroll; height: 80vh;">
+                    <div class="col-sm-9">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Star</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in star_stud %}
+                                <tr>
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td> {{i.student}}</td>
+                                    <td>
+                                            {% if i.star == 'STAR' %}
+                                            <i class="fas fa-star"></i>
+                                            {% else %}
+                                            <i class="far fa-star" style="user-select: auto;"></i>
+                                            {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-3">
+                        <form class="text-center" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3 row">
+                                {{form}}
+                            </div>
+                            <div class="text-center"><button class="btn btn-outline-primary text-center">Star
+                                    Student</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock star_student %}

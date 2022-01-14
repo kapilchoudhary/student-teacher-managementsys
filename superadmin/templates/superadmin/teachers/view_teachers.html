@@ -25,7 +25,7 @@
               {% for i in all_teachers %}
               <tr>
                 <th scope="row">{{forloop.counter}}</th>
-                <td><a href="{{i.id}}"> {{i.teacher_name}}</a></td>
+                <td><a href="{{i.id}}"> {{i.teacher__username}}</a></td>
                 <td>{{i.subject}}</td>
                 <td><form action="{% url 'delete_teacher' i.id %}" method="post">
                   {% csrf_token %}
@@ -49,13 +49,14 @@
           <div class="container">
             <form class="text-center" action="{% url 'all_teachers' %}" method="post">
               {% csrf_token %}
-              <div class="mb-3 row">
-                <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
-                {{form.teacher_name.label}}
-                <div class="col-sm-10">
-                  {{form.teacher_name}}
+              <!-- <div class="mb-3 row"> -->
+                <div class="mb-3 row">
+                  <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
+                  {{form.teacher.label}}
+                  <div class="col-sm-10">
+                    {{form.teacher}}
+                  </div>
                 </div>
-              </div>
               <div class="mb-3 row">
                 <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
                 {{form.subject.label}}

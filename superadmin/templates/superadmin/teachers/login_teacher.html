@@ -1,0 +1,38 @@
+{% extends '../base.html' %}
+{% block login_teacher %}
+
+<div class="container justify-content-center d-flex align-items-center" style="height: 100vh;">
+    
+    <div>
+        <h1 class="mx-5 text-center">Teacher Login</h1>
+    </div>
+    {% if msg %}
+    <div class="alert alert-success" role="alert">
+        {{msg}} !
+      </div>
+    {% endif %}
+
+    {% if form.errors %}
+      {{form.errors}}
+    {% endif %}
+    
+        
+    <form class="row g-3 mt-3" method="post" action="{% url 'teacherlogin' %}">
+        {% csrf_token %}
+        <div class="col-sm-12">
+            <label for="username" >Username</label>
+            {{form.username}}
+            <!-- <input type="text"  class="form-control" id="username" placeholder="email@example.com"> -->
+        </div>
+        <div class="col-sm-12">
+            <label for="inputPassword2" >Password</label>
+            {{form.password}}
+            <!-- <input type="password" class="form-control" id="password" placeholder="Password"> -->
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary mb-3">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock login_teacher %}
+
