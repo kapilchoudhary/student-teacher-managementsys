@@ -20,7 +20,8 @@ class Student(models.Model):
         return ", ".join([str(tch['teacher_name']) for tch in self.student_teacher.values('teacher_name')])
     
     def save(self, *args, **kwargs):
-        self.roll_num = Student.objects.count() + 1
+        if not self.roll_num:
+            self.roll_num = Student.objects.count() + 1
         return super().save(*args, **kwargs)
 
 

@@ -1,1 +1,4 @@
 /venv
+.env
+/.env
+/studentteachermgmt/__pycache__

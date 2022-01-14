@@ -1,0 +1,34 @@
+{% extends 'superadmin/base.html' %}
+
+{% block edit_student %}
+<div class="container-fluid rounded">
+    
+    <div class="row" style="overflow: scroll;">
+        
+        {% block side_bar %}
+        {% include '../side-bar.html' %}
+        {% endblock side_bar %}
+        <div class="col-sm-10 align-items-center">
+            <h1 class="text-center">Edit Student Detail</h1>
+            {% if msg %}
+                {{msg}}
+            {% endif %}
+            <div class="row">
+                <div class="col-sm-12 align-items-center justify-content-center d-flex">
+                    <form class="text-center" action="{% url 'all_students' id %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3 row">
+                            <h4>{{form.student_name.label}}</h4>
+                            <div class="col-sm-10">
+                                {{form}}
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary text-center">Edit Student</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock edit_student %}

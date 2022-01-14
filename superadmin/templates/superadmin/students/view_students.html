@@ -9,8 +9,8 @@
         {% block side_bar %}
         {% include '../side-bar.html' %}
         {% endblock side_bar %}
-        <div class="col-sm-7 align-items-center" style="background-color: #6fb6f1;">
-            <div class="row">
+        <div class="col-sm-7 align-items-center">
+            <div class="row" style="overflow: scroll; height: 90vh;">
                 <div class="col-sm-12">
 
                     <table class="table">
@@ -19,6 +19,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Roll No.</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,10 @@
                                 <th scope="row">{{forloop.counter}}</th>
                                 <td><a href="{{i.id}}"> {{i.student_name}}</a></td>
                                 <td>{{i.roll_num}}</td>
+                                <td><form action="{% url 'delete_student' i.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                </form></td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -34,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 border align-items-center" style="background-color: #6fb6f1;">
+        <div class="col-sm-3 border align-items-center">
             <div class="row align-items-center" style="height: 50%;">
                 <div class="col-sm-12 bg-dark">
                     <div class="container align-items-center text-center text-white mt-1">

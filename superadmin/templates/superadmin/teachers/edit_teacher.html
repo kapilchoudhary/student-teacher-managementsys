@@ -1,0 +1,37 @@
+{% extends 'superadmin/base.html' %}
+
+{% block edit_teacher %}
+<div class="container-fluid rounded">
+    <div class="row w-100">
+        
+        {% block side_bar %}
+        {% include '../side-bar.html' %}
+        {% endblock side_bar %}
+        <div class="col-sm-7 align-items-center">
+            <h1 class="text-center">Edit Teacher Detail</h1>
+            <div class="row w-100">
+                <div class="col-sm-12 justify-content-center align-items-center d-flex">
+                    {% if not msg %}
+
+                    <form class="text-center" action="{% url 'all_teachers' id %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3 row" >
+                            <div class="containter">
+
+                                {{form}}
+
+                            </div>
+                            <!-- <label for="username" class="col-sm-2 col-form-label">Name</label> -->
+                        </div>
+                        <button class="btn btn-outline-primary text-center">Edit Teacher</button>
+                    </form>
+                    {% else %}
+                        {{msg}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock edit_teacher %}
