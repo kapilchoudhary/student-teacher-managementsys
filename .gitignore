@@ -2,3 +2,4 @@
 .env
 /.env
 /studentteachermgmt/__pycache__
+/superadmin/__pycache__
